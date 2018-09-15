@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Udacity Neighborhood Map - Marei Morsy</title>
+	<link rel="stylesheet" href="css/material.blue-pink.min.css">
+	<link rel="stylesheet" href="css/material_icons.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+ <div class="mdl-layout mdl-js-layout
+             mdl-layout--fixed-header mdl-layout--fixed-drawer">
+   <header class="mdl-layout__header">
+     <div class="mdl-layout__header-row">
+     <!-- Title -->
+           <span class="mdl-layout-title" data-bind="click: clearSearchBox">Neighborhood Map</span>
+       <div class="mdl-layout-spacer"></div>
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+         <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+           <i class="material-icons">search</i>
+         </label>
+         <div class="mdl-textfield__expandable-holder">
+           <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" data-bind="textInput: search">
+         </div>
+       </div>
+     </div>
+   </header>
+   <div class="mdl-layout__drawer">
+     <span class="mdl-layout-title" data-bind="click: clearSearchBox" >Favourite locations</span>
+     <nav class="mdl-navigation" data-bind="foreach: locationsFilter()">
+       <a class="mdl-navigation__link" data-bind="text: title, click: listItemClicked"></a>
+     </nav>
+   </div>
+   <main class="mdl-layout__content" id="map">
+   <span data-bind="text: search"></span>
+   </main>
+ </div>
+
+<script defer src="js/libs/material.min.js"></script>
+<script defer src="js/libs/jquery.min.js"></script>
+<script defer src="js/libs/knockout.min.js"></script>
+<script defer src="js/locations.js"></script>
+<script defer src="js/app.js"></script>
+<script async defer onerror="mapError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDURpcQ7Nb0NvmC0bRA2dxj1fToOWPtEV8&callback=initMap"></script>
+
+
+</body>
+</html>
